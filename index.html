@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manish Jagotha Travelers — local, outstation and Uttarakhand travel bookings. Call or WhatsApp to enquire.">
+  <title>Manish Jagotha Travelers | Travel with Comfort</title>
+  <style>
+    :root { --navy:#082746; --blue:#0878e8; --sky:#eaf5ff; --ink:#15283d; --muted:#5c6c7d; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--ink); line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1120px,92%); margin:auto; }
+    header { position:sticky; top:0; z-index:5; background:#082746f5; color:white; box-shadow:0 3px 14px #0002; }
+    .nav { min-height:70px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; line-height:1.2; }
+    .logo { display:grid; place-items:center; width:42px; height:42px; border-radius:50%; background:#fff; color:var(--blue); font-size:1.4rem; }
+    nav { display:flex; gap:20px; align-items:center; font-size:.95rem; }
+    nav a:hover { color:#8fd3ff; }
+    .btn { display:inline-block; border:0; border-radius:9px; padding:12px 18px; font-weight:700; cursor:pointer; background:var(--blue); color:white; }
+    .btn.secondary { background:white; color:var(--navy); border:1px solid #d8e5f0; }
+    .hero { color:white; background:linear-gradient(90deg,#061d35e8,#061d3566),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85') center/cover; }
+    .hero-inner { padding:88px 0 96px; max-width:720px; }
+    .eyebrow { color:#8bd3ff; font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.82rem; }
+    h1 { font-size:clamp(2.4rem,6vw,4.5rem); line-height:1.08; margin:12px 0 18px; }
+    .hero p { font-size:1.12rem; max-width:600px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+    section { padding:62px 0; }
+    .section-head { margin-bottom:28px; }
+    .section-head h2 { font-size:clamp(1.7rem,4vw,2.4rem); margin:4px 0 8px; }
+    .section-head p { color:var(--muted); margin:0; }
+    .features { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:-30px; position:relative; }
+    .feature { background:white; padding:20px 16px; border-radius:12px; box-shadow:0 7px 25px #0a31521a; text-align:center; }
+    .feature .emoji { font-size:1.7rem; }
+    .feature h3 { margin:8px 0 4px; font-size:1rem; }
+    .feature p { margin:0; color:var(--muted); font-size:.9rem; }
+    .pale { background:var(--sky); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center; }
+    .about-art { min-height:290px; border-radius:18px; background:linear-gradient(0deg,#06233c88,#06233c00),url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1100&q=85') center/cover; display:flex; align-items:end; padding:24px; color:white; font-size:1.3rem; font-weight:800; }
+    .checks { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:0; list-style:none; }
+    .checks li::before { content:"✓ "; color:var(--blue); font-weight:900; }
+    .routes { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .route { overflow:hidden; border-radius:14px; background:white; border:1px solid #e0e8ef; box-shadow:0 5px 16px #0827460d; }
+    .route img { display:block; width:100%; height:155px; object-fit:cover; }
+    .route-content { padding:18px; }
+    .route h3 { margin:0 0 6px; }
+    .route p { color:var(--muted); font-size:.92rem; margin:0 0 15px; }
+    .booking { display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start; }
+    .booking-card { background:white; border:1px solid #dce7f1; border-radius:16px; padding:24px; box-shadow:0 8px 24px #0827460d; }
+    label { display:block; font-weight:700; margin:12px 0 5px; }
+    input, select, textarea { width:100%; border:1px solid #ccd8e3; border-radius:8px; padding:12px; font:inherit; background:white; }
+    textarea { min-height:90px; resize:vertical; }
+    .booking-card .btn { width:100%; margin-top:16px; }
+    .note { color:var(--muted); font-size:.85rem; }
+    footer { background:var(--navy); color:white; padding:30px 0; }
+    .footer-row { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+    footer p { margin:5px 0; color:#d3e1ef; }
+    .small { font-size:.85rem; color:#d3e1ef; text-align:center; padding-top:20px; }
+    @media(max-width:800px) {
+      nav { display:none; }
+      .features { grid-template-columns:repeat(2,1fr); }
+      .about-grid, .booking { grid-template-columns:1fr; }
+      .routes { grid-template-columns:repeat(2,1fr); }
+      .hero-inner { padding:70px 0 82px; }
+    }
+    @media(max-width:520px) {
+      .routes { grid-template-columns:1fr; }
+      .features { gap:9px; }
+      .feature { padding:15px 10px; }
+      .checks { grid-template-columns:1fr; }
+      .hero p { font-size:1rem; }
+      .btn { padding:11px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home"><span class="logo">▲</span><span>Manish Jagotha<br>Travelers</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#routes">Routes</a><a href="#booking">Booking</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="tel:+917454895936">📞 Call Now</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-inner">
+        <div class="eyebrow">Your journey, our responsibility</div>
+        <h1>Manish Jagotha<br><span style="color:#67c5ff">Travelers</span></h1>
+        <p>आपकी यात्रा, हमारी ज़िम्मेदारी। Uttarakhand aur aas-paas ke safar ke liye travel enquiry karein — comfortable journeys, personal service.</p>
+        <div class="actions">
+          <a class="btn" href="#booking">Book / Enquire Now</a>
+          <a class="btn secondary" href="https://wa.me/917454895936?text=Namaste%2C%20mujhe%20travel%20booking%20ki%20jaankari%20chahiye." target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap features" aria-label="Travel features">
+      <div class="feature"><div class="emoji">🛡️</div><h3>Safe Travel</h3><p>सुरक्षित सफ़र</p></div>
+      <div class="feature"><div class="emoji">🚘</div><h3>Comfortable Rides</h3><p>आरामदायक यात्रा</p></div>
+      <div class="feature"><div class="emoji">🗺️</div><h3>Local & Outstation</h3><p>लोकल और आउटस्टेशन</p></div>
+      <div class="feature"><div class="emoji">📞</div><h3>Easy Enquiry</h3><p>आसान संपर्क</p></div>
+    </div>
+
+    <section id="about" class="pale" style="margin-top:28px">
+      <div class="wrap about-grid">
+        <div>
+          <div class="eyebrow">About us / हमारे बारे में</div>
+          <div class="section-head"><h2>Travel with confidence.</h2><p>Manish Jagotha Travelers ke saath apne safar ki planning karein. Route, date, passengers aur pickup details share karke booking ke liye sampark karein.</p></div>
+          <ul class="checks">
+            <li>Local trips / लोकल यात्रा</li><li>Outstation trips / बाहर की यात्रा</li>
+            <li>Family travel / परिवार के साथ</li><li>Pilgrimage routes / तीर्थ यात्रा</li>
+          </ul>
+          <a class="btn" href="#booking">Plan Your Journey</a>
+        </div>
+        <div class="about-art">Explore Uttarakhand<br>उत्तराखंड की खूबसूरती</div>
+      </div>
+    </section>
+
+    <section id="routes">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">Popular journeys</div><h2>Popular Routes / प्रमुख रूट</h2><p>Apna route select karein, phir WhatsApp par enquiry bhejein.</p></div>
+        <div class="routes">
+          <article class="route"><img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80" alt="Haridwar river and temples"><div class="route-content"><h3>Haridwar – Rishikesh</h3><p>हरिद्वार – ऋषिकेश</p><a class="btn" href="https://wa.me/917454895936?text=Namaste%2C%20Haridwar%20-%20Rishikesh%20route%20ki%20booking%20enquiry%20hai." target="_blank" rel="noopener">Enquire</a></div></article>
+          <article class="route"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" alt="Mountain landscape"><div class="route-content"><h3>Dehradun – Rishikesh</h3><p>देहरादून – ऋषिकेश</p><a class="btn" href="https://wa.me/917454895936?text=Namaste%2C%20Dehradun%20-%20Rishikesh%20route%20ki%20booking%20enquiry%20hai." target="_blank" rel="noopener">Enquire</a></div></article>
+          <article class="route"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Himalayan mountains"><div class="route-content"><h3>Rudraprayag – Augustyamuni</h3><p>रुद्रप्रयाग – अगस्त्यमुनि</p><a class="btn" href="https://wa.me/917454895936?text=Namaste%2C%20Rudraprayag%20-%20Augustyamuni%20route%20ki%20booking%20enquiry%20hai." target="_blank" rel="noopener">Enquire</a></div></article>
+          <article class="route"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Green mountain valley"><div class="route-content"><h3>Guptkashi & nearby</h3><p>गुप्तकाशी और आसपास</p><a class="btn" href="https://wa.me/917454895936?text=Namaste%2C%20Guptkashi%20route%20ki%20booking%20enquiry%20hai." target="_blank" rel="noopener">Enquire</a></div></article>
+          <article class="route"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Scenic road trip"><div class="route-content"><h3>Custom Route</h3><p>अपना रूट बताएं</p><a class="btn" href="#booking">Plan Route</a></div></article>
+          <article class="route"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80" alt="Scenic travel destination"><div class="route-content"><h3>Family & Outstation</h3><p>फैमिली और आउटस्टेशन ट्रिप</p><a class="btn" href="#booking">Enquire</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="pale">
+      <div class="wrap booking">
+        <div>
+          <div class="eyebrow">Let's plan your trip</div>
+          <div class="section-head"><h2>Booking Enquiry</h2><p>Apni details bharein. Button dabane par WhatsApp khulega aur message ready ho jayega. Booking tabhi confirm hogi jab aapko business ki taraf se confirmation mile.</p></div>
+          <p><strong>Call:</strong> <a href="tel:+917454895936">74548 95936</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/917454895936" target="_blank" rel="noopener">Chat with us</a></p>
+        </div>
+        <form class="booking-card" id="bookingForm">
+          <label for="customer">Your name / आपका नाम</label><input id="customer" name="customer" required placeholder="Enter your name">
+          <label for="pickup">Pickup location / कहाँ से</label><input id="pickup" name="pickup" required placeholder="e.g. Dehradun">
+          <label for="destination">Destination / कहाँ तक</label><input id="destination" name="destination" required placeholder="e.g. Rudraprayag">
+          <label for="date">Travel date / यात्रा की तारीख</label><input id="date" name="date" type="date" required>
+          <label for="people">Passengers / यात्री</label><select id="people" name="people"><option>1–3</option><option>4–6</option><option>7 or more</option></select>
+          <label for="details">Extra details / अन्य जानकारी</label><textarea id="details" name="details" placeholder="Pickup time, luggage, return trip, etc."></textarea>
+          <button class="btn" type="submit">Send Enquiry on WhatsApp</button>
+          <p class="note">This form opens WhatsApp; it does not automatically confirm a booking.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="footer-row">
+        <div><strong style="font-size:1.15rem">Manish Jagotha Travelers</strong><p>आपकी यात्रा, हमारी ज़िम्मेदारी।</p></div>
+        <div><p>📞 <a href="tel:+917454895936">74548 95936</a></p><p>💬 <a href="https://wa.me/917454895936" target="_blank" rel="noopener">WhatsApp booking enquiry</a></p></div>
+      </div>
+      <div class="small">© <span id="year"></span> Manish Jagotha Travelers. All rights reserved.</div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const value = id => document.getElementById(id).value.trim();
+      const message = [
+        "Namaste Manish Jagotha Travelers!",
+        "Travel booking enquiry:",
+        "Name: " + value("customer"),
+        "Pickup: " + value("pickup"),
+        "Destination: " + value("destination"),
+        "Travel date: " + value("date"),
+        "Passengers: " + value("people"),
+        "Extra details: " + (value("details") || "None")
+      ].join("\n");
+      window.open("https://wa.me/917454895936?text=" + encodeURIComponent(message), "_blank", "noopener");
+    });
+  </script>
+</body>
+</html>
